@@ -243,10 +243,11 @@ def api_nn(raw: str) -> tuple[int, dict]:
 
 def main() -> None:
     lead.setup_log("http")
-    port = 8790
-    httpd = ThreadingHTTPServer(("127.0.0.1", port), Handler)
-    lead.log.info("http://127.0.0.1:%s/", port)
-    print(f"http://127.0.0.1:{port}/", flush=True)
+    host = os.environ.get("HOST") or "127.0.0.1"
+    port = int(os.environ.get("PORT") or "8790")
+    httpd = ThreadingHTTPServer((host, port), Handler)
+    lead.log.info("http://%s:%s/", host, port)
+    print(f"http://{host}:{port}/", flush=True)
     httpd.serve_forever()
 
 
