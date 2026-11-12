@@ -1,0 +1,23 @@
+# Системный мусор
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Логи и кэш
+*.log
+.logs/
+.cache/
+
+# Окружения разработки (если пишите на Python/Node)
+node_modules/
+.env
+.env.local
+leads.db
+*.db
+data/*.db
+funnel.log
+*.pyc
+__pycache__/
+venv/
+.venv/
+env/
