@@ -2,7 +2,7 @@ var I18N = {
   ru: {
     skip: "К содержанию",
     invite: "Пригласить на собес",
-    project: "Обсудить проект",
+    project: "Мой гитхаб",
     hi: "Привет!",
     who: "Я Илья Медников, автоматизирую процессы.",
     vibe: "Смэтчимся с теми, кто тонет в рутине. Звезды говорят, что наибольшая совместимость с малым или средним бизнесом. Зачастую решение сводится к ТГ-боту / скрипту / локальной LLM.",
@@ -76,7 +76,7 @@ var I18N = {
   en: {
     skip: "Skip to content",
     invite: "Invite to interview",
-    project: "Discuss a project",
+    project: "My GitHub",
     hi: "Hi!",
     who: "I'm Ilya Mednikov, I automate processes.",
     vibe: "Let's match with people drowning in routine. The stars say the best fit is small or mid-size business. Most of the time it comes down to a Telegram bot / a script / a local LLM.",
@@ -150,7 +150,7 @@ var I18N = {
   zh: {
     skip: "跳到正文",
     invite: "邀请面试",
-    project: "讨论项目",
+    project: "我的 GitHub",
     hi: "你好！",
     who: "我是伊利亚·梅德尼科夫，做流程自动化。",
     vibe: "跟埋在琐事里的人对上眼。星象说，和小公司、中型公司最合拍。往往就是 Telegram 机器人 / 脚本 / 本地大模型。",

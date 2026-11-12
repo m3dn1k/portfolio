@@ -82,7 +82,8 @@ def main() -> int:
     assert "Разработала CRM" not in html
     assert "СТЕК" not in html and "STECK" not in html
 
-    assert "Обсудить проект" in html
+    assert "Мой гитхаб" in html
+    assert "Обсудить проект" not in html
     assert "Заказать проект" not in html
     assert 'class="live"' in html
     assert 'data-live="wink"' in html
@@ -111,7 +112,7 @@ def main() -> int:
     assert "\\nКроме меня.\\n" not in js
 
     hrefs = re.findall(r'class="pill[^"]*" href="([^"]+)"', html)
-    assert hrefs == ["tg://resolve?domain=m3dn1kkk", "#try"], hrefs
+    assert hrefs == ["tg://resolve?domain=m3dn1kkk", "https://github.com/m3dn1k"], hrefs
     assert "https://t.me/" not in html
     assert "tg://resolve?domain=m3dn1kkk&text=" not in html
     assert 'fetch("/api/lead"' in html
@@ -152,7 +153,7 @@ def main() -> int:
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=59" in html
+    assert "i18n.js?v=60" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
