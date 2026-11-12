@@ -153,7 +153,7 @@ def main() -> int:
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=60" in html
+    assert "i18n.js?v=61" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
@@ -202,11 +202,21 @@ def main() -> int:
     assert "meAlt" not in js
     assert "Приоритизация" not in html
 
-    assert "github.com/m3dn1k/jobhunter" in html
-    assert "github.com/m3dn1k/tg-channel-assistant" in html
+    assert "github.com/m3dn1k/jobhunter" not in html
+    assert "github.com/m3dn1k/tg-channel-assistant" not in html
+    assert "case2link" not in js and "case3link" not in js
+    assert "case2body" not in js and "case3body" not in js
+    assert "Код на GitHub" not in html and "Код на GitHub" not in js
     assert "case2lead" in js and "case3lead" in js
-    assert "JobHunter: бот подбора вакансий" in html and "JobHunter: бот подбора вакансий" in js
-    assert "Ассистент по постам канала" in html and "Ассистент по постам канала" in js
+    assert "case2m1v" in js and "case3m1v" in js
+    assert "с Работы России, SuperJob и Хабр Карьеры" in html
+    assert "полнотекстовым поиском FTS5" in html
+    assert "@example_channel" in js
+    assert "case-link" not in html
+    assert html.count('class="case-top"') == 3
+    assert "img/case2-1.png" in html and "img/case3-1.png" in html
+    assert (root / "img" / "case2-1.png").is_file()
+    assert (root / "img" / "case3-1.png").is_file()
     assert html.count('class="case') >= 3
 
     print("ok", len(ru), "keys")

@@ -66,40 +66,52 @@ PROBE = r"""
       parent: img.parentElement.className,
     };
   });
-  const shots = document.querySelector(".case-shots").getBoundingClientRect();
-  const copy = document.querySelector(".case-copy").getBoundingClientRect();
   const nav = document.querySelector(".nav").getBoundingClientRect();
   const idle = document.querySelector(".hero-avatar-idle").getBoundingClientRect();
   const wink = document.querySelector(".hero-avatar-wink").getBoundingClientRect();
-  const shotImgs = [...document.querySelectorAll(".case-shots img")].map((img) => {
-    const r = img.getBoundingClientRect();
-    const fit = getComputedStyle(img).objectFit;
-    const boxAr = r.width / r.height;
-    const natAr = img.naturalWidth / img.naturalHeight;
+  const cases = [...document.querySelectorAll(".case")].map((block) => {
+    const shotsEl = block.querySelector(".case-shots");
+    const copyEl = block.querySelector(".case-copy");
+    if (!shotsEl || !copyEl) return null;
+    const shots = shotsEl.getBoundingClientRect();
+    const copy = copyEl.getBoundingClientRect();
+    const shotImgs = [...shotsEl.querySelectorAll("img")].map((img) => {
+      const r = img.getBoundingClientRect();
+      const fit = getComputedStyle(img).objectFit;
+      const boxAr = r.width / r.height;
+      const natAr = img.naturalWidth / img.naturalHeight;
+      return {
+        src: img.getAttribute("src"),
+        on: img.classList.contains("is-on"),
+        ui: img.classList.contains("case-shot-ui"),
+        photo: img.classList.contains("case-shot-photo"),
+        fit,
+        crops: fit === "cover" && Math.abs(boxAr - natAr) / natAr > 0.03,
+        inside:
+          r.left >= shots.left - slack &&
+          r.right <= shots.right + slack &&
+          r.top >= shots.top - slack &&
+          r.bottom <= shots.bottom + slack,
+        w: Math.round(r.width),
+        h: Math.round(r.height),
+      };
+    });
     return {
-      src: img.getAttribute("src"),
-      on: img.classList.contains("is-on"),
-      ui: img.classList.contains("case-shot-ui"),
-      photo: img.classList.contains("case-shot-photo"),
-      fit,
-      crops: fit === "cover" && Math.abs(boxAr - natAr) / natAr > 0.03,
-      inside:
-        r.left >= shots.left - slack &&
-        r.right <= shots.right + slack &&
-        r.top >= shots.top - slack &&
-        r.bottom <= shots.bottom + slack,
-      w: Math.round(r.width),
-      h: Math.round(r.height),
+      shotImgs,
+      shots: { w: Math.round(shots.width), h: Math.round(shots.height), t: Math.round(shots.top), b: Math.round(shots.bottom) },
+      copy: { t: Math.round(copy.top), h: Math.round(copy.height), l: Math.round(copy.left) },
     };
-  });
+  }).filter(Boolean);
+  const first = cases[0];
   return {
     vw,
     scrollExtra: document.documentElement.scrollWidth - document.documentElement.clientWidth,
     bad,
     imgs,
-    shotImgs,
-    shots: { w: Math.round(shots.width), h: Math.round(shots.height), t: Math.round(shots.top), b: Math.round(shots.bottom) },
-    copy: { t: Math.round(copy.top), h: Math.round(copy.height), l: Math.round(copy.left) },
+    cases,
+    shotImgs: first.shotImgs,
+    shots: first.shots,
+    copy: first.copy,
     navW: Math.round(nav.width),
     winkMatch: Math.abs(idle.width - wink.width) < 3 && Math.abs(idle.height - wink.height) < 3,
     idleW: Math.round(idle.width),
@@ -284,22 +296,30 @@ def _check(rep: dict, width: int) -> None:
         assert im["ok"] and im["nw"] > 0, (width, "img dead", im)
         assert im["w"] > 8 and im["h"] > 8, (width, "img tiny", im)
         assert not im["leak"], (width, "img leak", im)
-    shots = [x for x in rep["shotImgs"] if x["on"]]
-    assert len(shots) == 1, (width, "on-slide", rep["shotImgs"])
-    on = shots[0]
-    assert on["inside"] and on["w"] > 80 and on["h"] > 60, (width, "case photo", on)
-    for s in rep["shotImgs"]:
-        assert s["inside"], (width, "case leak", s)
-        assert s["fit"] == "cover", (width, "shot fill", s)
-    plate = rep["shots"]
-    assert plate["w"] > 80 and plate["h"] > 60, (width, "plate", plate)
-    assert 0.68 <= plate["h"] / plate["w"] <= 0.82, (width, "not 4/3", plate)
-    if width >= 768:
-        assert abs(plate["t"] - rep["copy"]["t"]) <= 8, (width, "case not row", plate, rep["copy"])
-        assert rep["copy"]["h"] >= plate["h"] - 12, (width, "copy shorter than mock", plate, rep["copy"])
-        assert plate["w"] < w * 0.72, (width, "shots ate row", plate)
-    else:
-        assert rep["copy"]["t"] >= plate["b"] - 2, (width, "case not stacked", plate, rep["copy"])
+    blocks = rep.get("cases") or [{
+        "shotImgs": rep["shotImgs"],
+        "shots": rep["shots"],
+        "copy": rep["copy"],
+    }]
+    assert len(blocks) >= 3, (width, "cases", len(blocks))
+    for i, block in enumerate(blocks):
+        shots = [x for x in block["shotImgs"] if x["on"]]
+        assert len(shots) == 1, (width, i, "on-slide", block["shotImgs"])
+        on = shots[0]
+        assert on["inside"] and on["w"] > 80 and on["h"] > 60, (width, i, "case photo", on)
+        for s in block["shotImgs"]:
+            assert s["inside"], (width, i, "case leak", s)
+            assert s["fit"] == "cover", (width, i, "shot fill", s)
+        plate = block["shots"]
+        copy = block["copy"]
+        assert plate["w"] > 80 and plate["h"] > 60, (width, i, "plate", plate)
+        assert 0.68 <= plate["h"] / plate["w"] <= 0.82, (width, i, "not 4/3", plate)
+        if width >= 768:
+            assert abs(plate["t"] - copy["t"]) <= 8, (width, i, "case not row", plate, copy)
+            assert copy["h"] >= plate["h"] - 12, (width, i, "copy shorter than mock", plate, copy)
+            assert plate["w"] < w * 0.72, (width, i, "shots ate row", plate)
+        else:
+            assert copy["t"] >= plate["b"] - 2, (width, i, "case not stacked", plate, copy)
 
 
 def main() -> int:
