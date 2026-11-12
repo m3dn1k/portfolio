@@ -1623,20 +1623,15 @@ a {
 }
 
 .hero-avatar {
-  --av-pad: 16px 18px;
-  background: #f4f7fa;
-  border-radius: 28px;
-  padding: 16px 18px;
+  background: none;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
   justify-self: start;
 }
 
-.hero-avatar img.hero-avatar-wink {
-  left: 18px;
-  top: 16px;
-  width: auto;
-  height: auto;
-  /* match idle: 100% of the content box, not the padded padding-box */
-  max-width: calc(100% - 36px);
+.hero-avatar img {
+  border-radius: 0;
 }
 
 .hero-side,
@@ -1840,14 +1835,15 @@ a {
 
   .hero-avatar {
     grid-area: side;
-    justify-self: stretch;
-    align-self: stretch;
+    justify-self: end;
+    align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
     width: auto;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background: none;
   }
 
   .hero-avatar img {
@@ -1855,11 +1851,11 @@ a {
   }
 
   .hero-avatar img.hero-avatar-wink {
-    left: 50%;
-    top: 50%;
-    width: min(calc(100% - 40px), 340px);
+    left: 0;
+    top: 0;
+    width: min(100%, 340px);
     max-width: none;
-    transform: translate(-50%, -50%);
+    transform: none;
   }
 
   .hero-side {
