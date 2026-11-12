@@ -154,12 +154,12 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=103"' in html
+    assert 'href="styles.css?v=104"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=63" in html
+    assert "i18n.js?v=64" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
@@ -183,6 +183,12 @@ def main() -> int:
     assert "me-stage" in html
     assert html.count("me-cell") == 4
     assert "me-ico" not in html
+    assert html.count("me-mark") == 4
+    assert "toTop" in js and "Наверх" in html and "Back to top" in js and "返回顶部" in js
+    assert "nav-menu" in html and "nav-burger" in html
+    assert "hero-intro" in html
+    assert "data-reveal" in html
+    assert "js-reveal" in css
     assert "me-motto" in html
     assert html.find("me1t") < html.find("me1b") < html.find("me1m")
     assert html.find("me1m") < html.find("me2t") < html.find("me3t") < html.find("me4t")

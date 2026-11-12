@@ -236,6 +236,76 @@ a {
   transform: translateY(1px);
 }
 
+.nav-menu {
+  position: relative;
+}
+
+.nav-burger {
+  display: none;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-burger::-webkit-details-marker,
+.nav-burger::marker {
+  display: none;
+  content: "";
+}
+
+.nav-burger-ico,
+.nav-burger-ico::before,
+.nav-burger-ico::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.nav-burger-ico {
+  position: relative;
+}
+
+.nav-burger-ico::before,
+.nav-burger-ico::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-burger-ico::before {
+  top: -6px;
+}
+
+.nav-burger-ico::after {
+  top: 6px;
+}
+
+.nav-menu[open] .nav-burger-ico {
+  background: transparent;
+}
+
+.nav-menu[open] .nav-burger-ico::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-menu[open] .nav-burger-ico::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
 .icon {
   width: 18px;
   height: 18px;
@@ -244,18 +314,25 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  padding-top: 0;
+  padding-bottom: 48px;
+}
+
+.hero-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "heading avatar"
-    "vibe vibe"
-    "live live"
-    "facts facts";
-  column-gap: 12px;
-  row-gap: 10px;
-  padding-top: 28px;
-  padding-bottom: 60px;
-  min-height: calc(100dvh - 64px);
-  align-items: start;
+    "avatar"
+    "heading"
+    "vibe";
+  justify-items: start;
+  align-content: start;
+  gap: 0;
+  min-height: calc(100dvh - 60px);
+  padding-top: 36px;
+  padding-bottom: 56px;
+  box-sizing: border-box;
 }
 
 .hero-copy {
@@ -267,7 +344,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.12em;
-  margin: 0;
+  margin: 20px 0 0;
   font-size: clamp(1.85rem, 4.6vw, 3.1rem);
   font-weight: 700;
   letter-spacing: -0.065em;
@@ -286,8 +363,8 @@ a {
 
 .hero-copy p {
   grid-area: vibe;
-  margin: 6px 0 0;
-  max-width: none;
+  margin: 18px 0 0;
+  max-width: 36rem;
   color: var(--muted);
   letter-spacing: -0.02em;
 }
@@ -298,7 +375,6 @@ a {
 }
 
 .hero-facts {
-  grid-area: facts;
   margin: 0;
   padding: 28px 0 14px;
   list-style: none;
@@ -397,12 +473,13 @@ a {
 }
 
 .hero-side {
-  display: contents;
+  display: block;
+  min-width: 0;
 }
 
 .live {
-  grid-area: live;
   margin: 8px 0 0;
+  padding-top: 12px;
   min-width: 0;
 }
 
@@ -455,6 +532,7 @@ a {
   grid-area: avatar;
   margin: 0;
   align-self: start;
+  justify-self: start;
   position: relative;
   border: 0;
   padding: 0;
@@ -465,7 +543,7 @@ a {
 
 .hero-avatar img {
   display: block;
-  width: min(12.5rem, 46vw);
+  width: min(8.5rem, 42vw);
   height: auto;
   transition: opacity 0.12s ease;
 }
@@ -917,7 +995,7 @@ a {
   grid-template-areas:
     "note"
     "copy"
-    "stars";
+    "actions";
   align-items: start;
   gap: 12px;
 }
@@ -942,11 +1020,12 @@ a {
 }
 
 .to-stars {
-  grid-area: stars;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   justify-self: start;
+  min-height: 44px;
+  box-sizing: border-box;
   background: #f4f7fa;
   color: var(--ink);
   text-decoration: none;
@@ -965,6 +1044,58 @@ a {
   transform: translateY(1px);
 }
 
+.me-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.me-mark svg {
+  display: block;
+}
+
+.foot-actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 4px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 550;
+  font-size: 0.92rem;
+  letter-spacing: -0.02em;
+}
+
+.to-top:hover {
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js-reveal [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.js-reveal [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -972,32 +1103,32 @@ a {
 
 @media (max-width: 767px) {
   .nav-in {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "brand langs"
-      "pills pills";
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 8px 8px;
-    padding: 6px 0 10px;
+    min-height: 60px;
+    padding: 0;
+    gap: 4px 8px;
   }
 
   .brand {
-    grid-area: brand;
     display: inline-flex;
     align-items: center;
     min-height: 44px;
+    font-size: 0.95rem;
+    min-width: 0;
   }
 
   .nav-end {
-    display: contents;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0 2px;
+    margin-left: auto;
   }
 
   .langs {
-    grid-area: langs;
-    justify-self: end;
     gap: 0;
-    margin-right: -8px;
   }
 
   .langs button {
@@ -1007,16 +1138,29 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.86rem;
+    font-size: 0.8rem;
   }
 
-  .pills {
-    grid-area: pills;
+  .nav-burger {
+    display: inline-flex;
+  }
+
+  .nav-menu .pills {
+    display: none;
+  }
+
+  .nav-menu[open] .pills {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    z-index: 25;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;
-    width: 100%;
+    width: min(20rem, calc(100vw - 48px));
     gap: 8px;
+    padding: 10px;
+    background: #f4f7fa;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgb(26 33 41 / 0.14);
   }
 
   .pills .pill {
@@ -1030,44 +1174,17 @@ a {
     padding: 10px 12px;
   }
 
-  .hero {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "hi avatar"
-      "who who"
-      "vibe vibe"
-      "live live"
-      "facts facts";
-    column-gap: 12px;
-    row-gap: 8px;
-    padding-top: 20px;
-    padding-bottom: 44px;
-    min-height: 0;
+  .hero-intro {
+    padding-top: 32px;
+    padding-bottom: 52px;
   }
 
   .hero h1 {
-    display: contents;
     letter-spacing: -0.04em;
   }
 
-  .hero .hi {
-    grid-area: hi;
-    align-self: center;
-  }
-
-  .hero .who {
-    grid-area: who;
-    min-width: 0;
-  }
-
-  .hero-avatar {
-    grid-area: avatar;
-    justify-self: end;
-    align-self: start;
-  }
-
   .hero-avatar img {
-    width: min(6.75rem, 30vw);
+    width: min(8.25rem, 42vw);
   }
 
   [data-lang="zh"] .hero h1,
@@ -1141,9 +1258,41 @@ a {
   }
 
   .me-stage {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .me-cell {
+    padding: 14px 14px 12px;
+    border-radius: 22px;
+  }
+
+  .me-cell h3 {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+  }
+
+  .me-cell p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    max-width: none;
+  }
+
+  .me-motto {
+    padding-top: 10px;
+    font-size: 0.75rem;
+  }
+
+  .me-mark {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 8px;
+  }
+
+  .me-mark svg {
+    width: 22px;
+    height: 22px;
   }
 
   .foot {
@@ -1161,11 +1310,21 @@ a {
     margin-top: 4px;
   }
 
+  .foot-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .to-top {
+    justify-self: start;
+  }
+
   .to-stars {
     justify-self: stretch;
     justify-content: center;
     width: 100%;
-    margin-top: 14px;
     padding: 12px 16px;
     min-height: 44px;
   }
@@ -1176,15 +1335,30 @@ a {
     width: min(1120px, calc(100% - 96px));
   }
 
+  .nav-in {
+    min-height: 64px;
+    padding: 8px 0;
+    flex-wrap: nowrap;
+  }
+
+  .nav-burger {
+    display: none;
+  }
+
   .hero {
+    gap: 8px;
+    padding-top: 0;
+    padding-bottom: 56px;
+  }
+
+  .hero-intro {
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    grid-template-areas:
-      "copy side"
-      "facts facts";
+    grid-template-areas: "copy side";
     gap: 36px 40px;
-    padding-top: 36px;
-    min-height: calc(100dvh - 80px);
     align-items: center;
+    min-height: calc(100dvh - 64px);
+    padding-top: 28px;
+    padding-bottom: 48px;
   }
 
   .hero-copy {
@@ -1195,6 +1369,7 @@ a {
   .hero h1 {
     display: block;
     max-width: 18ch;
+    margin-top: 0;
     text-wrap: balance;
   }
 
@@ -1207,7 +1382,8 @@ a {
   }
 
   .hero-avatar {
-    justify-self: unset;
+    grid-area: side;
+    justify-self: end;
     align-self: center;
   }
 
@@ -1216,31 +1392,34 @@ a {
   }
 
   .hero-side {
-    display: flex;
-    flex-direction: column;
-    grid-area: side;
-    align-items: center;
-    gap: 14px;
-    justify-self: end;
-    min-width: 0;
-    width: min(100%, 420px);
+    width: min(100%, 36rem);
   }
 
   .live {
     margin: 0;
+    padding-top: 8px;
     width: 100%;
   }
 
   .hero-facts {
     gap: 28px 36px;
-    padding-top: 20px;
+    padding-top: 28px;
+  }
+
+  .nav-menu > .pills {
+    display: flex;
   }
 
   .foot {
     grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "copy note stars";
+    grid-template-areas: "copy note actions";
     align-items: center;
     gap: 16px 24px;
+  }
+
+  .foot-actions {
+    justify-self: end;
+    justify-content: flex-end;
   }
 
   .to-stars {

@@ -6,7 +6,7 @@
   <title>Илья Медников. Автоматизация процессов</title>
   <meta name="description" content="Автоматизация операционки: разбор процесса, сборка на том что уже стоит, алерт в Telegram. Без новой CRM и без человека в штат." />
   <meta name="theme-color" content="#e6ebf1" />
-  <link rel="stylesheet" href="styles.css?v=103" />
+  <link rel="stylesheet" href="styles.css?v=104" />
   <script>
     try {
       var q = new URLSearchParams(location.search).get("lang");
@@ -31,31 +31,38 @@
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
         <button type="button" data-lang="zh" aria-pressed="false">中文</button>
       </div>
-      <div class="pills">
-        <a class="pill pill-quiet" href="tg://resolve?domain=m3dn1kkk" data-hit="invite" data-i18n="invite">Пригласить на собес</a>
-        <a class="pill" href="https://github.com/m3dn1k" target="_blank" rel="noopener" data-hit="project" data-i18n="project">Мой гитхаб</a>
-      </div>
+      <details class="nav-menu" id="nav-menu">
+        <summary class="nav-burger" data-i18n-aria="menu">
+          <span class="nav-burger-ico" aria-hidden="true"></span>
+        </summary>
+        <div class="pills">
+          <a class="pill pill-quiet" href="tg://resolve?domain=m3dn1kkk" data-hit="invite" data-i18n="invite">Пригласить на собес</a>
+          <a class="pill" href="https://github.com/m3dn1k" target="_blank" rel="noopener" data-hit="project" data-i18n="project">Мой гитхаб</a>
+        </div>
+      </details>
     </div>
     </div>
   </header>
 
   <main id="main">
     <section class="hero wrap">
-      <div class="hero-copy">
-        <h1>
-          <span class="hi" data-i18n="hi">Привет!</span>
-          <span class="who" data-i18n="who">Я Илья Медников, автоматизирую процессы.</span>
-        </h1>
-        <p>
-          <span data-i18n="vibe">Смэтчимся с теми, кто тонет в рутине. Звезды говорят, что наибольшая совместимость с малым или средним бизнесом. Зачастую решение сводится к ТГ-боту / скрипту / локальной LLM.</span>
-          <span class="vibe-last" data-i18n="vibeLast">Можно звать Илюхой, в команду, в штат, на проект или попить пива.</span>
-        </p>
-      </div>
-      <div class="hero-side">
+      <div class="hero-intro">
+        <div class="hero-copy">
+          <h1>
+            <span class="hi" data-i18n="hi">Привет!</span>
+            <span class="who" data-i18n="who">Я Илья Медников, автоматизирую процессы.</span>
+          </h1>
+          <p>
+            <span data-i18n="vibe">Смэтчимся с теми, кто тонет в рутине. Звезды говорят, что наибольшая совместимость с малым или средним бизнесом. Зачастую решение сводится к ТГ-боту / скрипту / локальной LLM.</span>
+            <span class="vibe-last" data-i18n="vibeLast">Можно звать Илюхой, в команду, в штат, на проект или попить пива.</span>
+          </p>
+        </div>
         <button type="button" class="hero-avatar" data-i18n-aria="avatarWink" aria-label="Портрет. Нажми, подмигну">
           <img class="hero-avatar-idle" src="img/avatar.png" width="1024" height="1024" alt="" />
           <img class="hero-avatar-wink" src="img/avatar-wink.png?v=3" width="1024" height="1024" alt="" />
         </button>
+      </div>
+      <div class="hero-side" data-reveal>
         <aside class="live" aria-labelledby="live-kicker">
           <p class="live-kicker" id="live-kicker" data-i18n="liveKicker">Сколько:</p>
           <ul aria-live="polite">
@@ -66,7 +73,7 @@
           </ul>
         </aside>
       </div>
-      <ul class="hero-facts">
+      <ul class="hero-facts" data-reveal>
         <li>
           <span class="fact-ico" aria-hidden="true">
             <svg viewBox="0 0 32 32" width="32" height="32">
@@ -131,7 +138,7 @@
       </ul>
     </section>
 
-    <section class="work wrap">
+    <section class="work wrap" data-reveal>
       <article class="case">
         <div class="case-top">
           <figure class="case-shots" data-shots>
@@ -203,7 +210,7 @@
       </article>
     </section>
 
-    <section class="try wrap" id="try">
+    <section class="try wrap" id="try" data-reveal>
       <div class="try-main">
         <h2 data-i18n="tryTitle">Первый разбор бесплатно</h2>
         <p class="try-lead" data-i18n="tryLead">Напишите или надиктуйте, что уже достало. Бот задаст пару вопросов, я свяжусь в течение часа, разберём процесс и решим, что делать.</p>
@@ -250,26 +257,38 @@
       </aside>
     </section>
 
-    <p class="stack wrap" data-i18n="stack">Python, PowerShell, SQL, REST, Git, Telegram, локальные модели. Инструменты, не витрина.</p>
+    <p class="stack wrap" data-reveal data-i18n="stack">Python, PowerShell, SQL, REST, Git, Telegram, локальные модели. Инструменты, не витрина.</p>
 
-    <section class="me wrap" data-i18n-aria="meAria" aria-label="Четыре ячейки">
+    <section class="me wrap" data-reveal data-i18n-aria="meAria" aria-label="Четыре ячейки">
       <div class="me-stage">
         <article class="me-cell">
+          <span class="me-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 16.5V7.8A2.3 2.3 0 0 1 7.3 5.5h9.4A2.3 2.3 0 0 1 19 7.8v5.2a2.3 2.3 0 0 1-2.3 2.3H9.2L5 18.4z"/></svg>
+          </span>
           <h3 data-i18n="me1t">Коммуникация</h3>
           <p data-i18n="me1b">Максимальная эмпатия к людям. Умею разруливать конфликты и договариваться с людьми.</p>
           <p class="me-motto" data-i18n="me1m">Люблю когда человеки человечатся</p>
         </article>
         <article class="me-cell">
+          <span class="me-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="9" cy="8.5" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15.5" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M5.2 17.2c.4-2.4 2.3-3.7 3.8-3.7s3.4 1.3 3.8 3.7M13 13.6c1.6-.2 3.3 1 3.8 3.4"/></svg>
+          </span>
           <h3 data-i18n="me2t">Работа в команде</h3>
           <p data-i18n="me2b">Умею вести конструктивный диалог. Даю корректную обратную связь и умею воспринимать обратную связь в свою сторону.</p>
           <p class="me-motto" data-i18n="me2m">Считаю важным уметь слушать и быть услышанным</p>
         </article>
         <article class="me-cell">
+          <span class="me-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M12 8.2V12l2.8 1.8"/></svg>
+          </span>
           <h3 data-i18n="me3t">Тайм-менеджмент</h3>
           <p data-i18n="me3b">Умею приоритизировать свои задачи и не распылять свое время.</p>
           <p class="me-motto" data-i18n="me3m">Умею занять себя и найти себе дело</p>
         </article>
         <article class="me-cell">
+          <span class="me-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="m8.2 12.2 2.5 2.5 5.1-5.2"/></svg>
+          </span>
           <h3 data-i18n="me4t">Ответственность</h3>
           <p data-i18n="me4b">Соблюдаю договоренности и не превышаю дедлайны. Для меня главное репутация и доверие.</p>
           <p class="me-motto" data-i18n="me4m">Если я пообещал, значит сделаю</p>
@@ -278,18 +297,66 @@
     </section>
   </main>
 
-  <footer class="foot wrap">
+  <footer class="foot wrap" data-reveal>
     <p class="copy" data-i18n="copyYear">©2026</p>
     <p class="ai-note" data-i18n="aiNote">*все, что вы здесь видели, было сгенерировано при помощи ИИ.
 Кроме меня. Я настоящий.</p>
-    <a class="to-stars" href="#top">
-      <span data-i18n="toStars">через тернии к звездам</span>
-      <span aria-hidden="true">↑</span>
-    </a>
+    <div class="foot-actions">
+      <a class="to-top" href="#top">
+        <span data-i18n="toTop">Наверх</span>
+        <span aria-hidden="true">↑</span>
+      </a>
+      <a class="to-stars" href="#top">
+        <span data-i18n="toStars">через тернии к звездам</span>
+        <span aria-hidden="true">↑</span>
+      </a>
+    </div>
   </footer>
 
-  <script src="i18n.js?v=63"></script>
+  <script src="i18n.js?v=64"></script>
   <script src="live.js?v=1"></script>
+  <script>
+    (function () {
+      var menu = document.getElementById("nav-menu");
+      if (menu) {
+        function desktop() { return window.matchMedia("(min-width: 768px)").matches; }
+        function sync() {
+          if (desktop()) menu.setAttribute("open", "");
+          else menu.removeAttribute("open");
+        }
+        sync();
+        window.addEventListener("resize", sync);
+        document.addEventListener("click", function (e) {
+          if (desktop() || !menu.hasAttribute("open")) return;
+          if (!menu.contains(e.target)) menu.removeAttribute("open");
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !desktop()) menu.removeAttribute("open");
+        });
+        menu.querySelectorAll(".pill").forEach(function (a) {
+          a.addEventListener("click", function () {
+            if (!desktop()) menu.removeAttribute("open");
+          });
+        });
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      if (!("IntersectionObserver" in window)) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      document.documentElement.classList.add("js-reveal");
+      var nodes = document.querySelectorAll("[data-reveal]");
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      nodes.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
   <script>
     (function () {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;

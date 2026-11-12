@@ -79,6 +79,8 @@ var I18N = {
     avatarWink: "Портрет. Нажми, подмигну",
     langLabel: "Язык",
     copyYear: "©2026",
+    menu: "Меню",
+    toTop: "Наверх",
     toStars: "через тернии к звездам",
     aiNote: "*все, что вы здесь видели, было сгенерировано при помощи ИИ.\nКроме меня. Я настоящий."
   },
@@ -162,6 +164,8 @@ var I18N = {
     avatarWink: "Portrait. Click to wink",
     langLabel: "Language",
     copyYear: "©2026",
+    menu: "Menu",
+    toTop: "Back to top",
     toStars: "through thorns to the stars",
     aiNote: "*everything you saw here was generated with AI.\nExcept me. I am real."
   },
@@ -245,6 +249,8 @@ var I18N = {
     avatarWink: "肖像。点一下会眨眼",
     langLabel: "语言",
     copyYear: "©2026",
+    menu: "菜单",
+    toTop: "返回顶部",
     toStars: "穿越荆棘，直达群星",
     aiNote: "*本页展示内容均由人工智能生成。\n我本人除外。我是真实的。"
   }
