@@ -1,5 +1,7 @@
 # site
 
+Живая версия: [https://m3dn1k.tech](https://m3dn1k.tech)
+
 Личный сайт Ильи Медникова: автоматизация процессов, форма заявки и Telegram-бот, который уточняет задачу и присылает разбор. По желанию лид разбирает локальная модель через Ollama.
 
 Стек: Python 3 (только стандартная библиотека), HTML/CSS/JS, Telegram Bot API, SQLite, Ollama.
@@ -35,4 +37,4 @@ MIT. Copyright (c) 2026 Ilya Mednikov.
 
 ---
 
-Personal site of Ilya Mednikov: process automation, a lead form and a Telegram bot, with an optional local LLM via Ollama. Copy `.env.example` to `.env`, run `python server.py` and `python bot.py`. Do not commit `.env` or `data/leads.db`.
+Live site: https://m3dn1k.tech. Personal site of Ilya Mednikov: process automation, a lead form and a Telegram bot, with an optional local LLM via Ollama. Copy `.env.example` to `.env`, run `python server.py` and `python bot.py`. Do not commit `.env` or `data/leads.db`.
