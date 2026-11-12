@@ -85,6 +85,12 @@ def main() -> int:
     assert "Мой гитхаб" in html
     assert "Обсудить проект" not in html
     assert "Заказать проект" not in html
+    assert "Захотели обсудить со мной проект" not in html and "Захотели обсудить со мной проект" not in js
+    assert "Wanted to talk about a project" not in js
+    assert "想跟我谈项目" not in js
+    assert "Заценили мой гитхаб" in html and "Заценили мой гитхаб" in js
+    assert "Checked out my GitHub" in js
+    assert "浏览过我的 GitHub" in js
     assert 'class="live"' in html
     assert 'data-live="wink"' in html
     assert html.find('class="live"') < html.find("</footer>")
@@ -148,12 +154,12 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=102"' in html
+    assert 'href="styles.css?v=103"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=62" in html
+    assert "i18n.js?v=63" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
