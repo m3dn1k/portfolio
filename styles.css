@@ -1809,40 +1809,40 @@ a {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     grid-template-areas:
-      "intro intro"
-      "live facts";
+      "copy avatar"
+      "copy facts"
+      "live live";
     gap: 14px;
     padding-top: 16px;
-    padding-bottom: 24px;
-    align-items: stretch;
+    padding-bottom: 16px;
+    align-items: start;
   }
 
   .hero-intro {
-    grid-area: intro;
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    grid-template-areas: "copy side";
-    gap: 14px;
-    padding: 0;
-    align-items: stretch;
+    display: contents;
   }
 
   .hero-copy {
     display: block;
     grid-area: copy;
     padding: 32px 36px 28px;
+    height: 100%;
+    box-sizing: border-box;
   }
 
   .hero-avatar {
-    grid-area: side;
+    grid-area: avatar;
     justify-self: end;
-    align-self: center;
+    align-self: start;
     display: flex;
     align-items: center;
     justify-content: center;
     width: auto;
     margin: 0;
-    padding: 0;
+    padding-top: 32px;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
     background: none;
   }
 
@@ -1852,7 +1852,7 @@ a {
 
   .hero-avatar img.hero-avatar-wink {
     left: 0;
-    top: 0;
+    top: 32px;
     width: min(100%, 340px);
     max-width: none;
     transform: none;
@@ -1864,7 +1864,7 @@ a {
   }
 
   .live {
-    height: 100%;
+    height: auto;
     padding: 18px 22px;
   }
 
@@ -1875,6 +1875,7 @@ a {
     gap: 10px;
     padding: 0;
     margin: 0;
+    align-self: start;
   }
 
   .hero-facts li {
