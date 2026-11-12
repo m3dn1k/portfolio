@@ -154,12 +154,12 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=104"' in html
+    assert 'href="styles.css?v=105"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=64" in html
+    assert "i18n.js?v=65" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
