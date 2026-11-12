@@ -113,7 +113,7 @@ PROBE = r"""
     shots: first.shots,
     copy: first.copy,
     navW: Math.round(nav.width),
-    winkMatch: Math.abs(idle.width - wink.width) < 3 && Math.abs(idle.height - wink.height) < 3,
+    winkMatch: Math.abs(idle.width - wink.width) < 1 && Math.abs(idle.height - wink.height) < 1 && Math.abs(idle.left - wink.left) < 1 && Math.abs(idle.top - wink.top) < 1,
     idleW: Math.round(idle.width),
     idleH: Math.round(idle.height),
   };
