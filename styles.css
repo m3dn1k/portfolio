@@ -731,6 +731,10 @@ a {
   box-shadow: 0 12px 32px rgb(26 33 41 / 0.08);
 }
 
+.case-plain {
+  grid-template-columns: 1fr;
+}
+
 .case-shots {
   position: relative;
   margin: 0;
@@ -841,6 +845,21 @@ a {
 
 .case-link:hover {
   filter: brightness(0.8);
+}
+
+.case-gh {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 18px;
+  font-size: 0.82rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.case-gh:hover {
+  color: var(--ink);
 }
 
 .stack {
@@ -1119,6 +1138,10 @@ a {
     gap: 24px 28px;
     align-items: stretch;
     padding: 24px;
+  }
+
+  .case-plain {
+    grid-template-columns: 1fr;
   }
 
   .case-card {

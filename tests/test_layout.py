@@ -301,7 +301,7 @@ def _check(rep: dict, width: int) -> None:
         "shots": rep["shots"],
         "copy": rep["copy"],
     }]
-    assert len(blocks) >= 3, (width, "cases", len(blocks))
+    assert len(blocks) >= 1, (width, "shot cases", len(blocks))
     for i, block in enumerate(blocks):
         shots = [x for x in block["shotImgs"] if x["on"]]
         assert len(shots) == 1, (width, i, "on-slide", block["shotImgs"])

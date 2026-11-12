@@ -123,7 +123,7 @@ def main() -> int:
     assert "avatar-eye" not in css and "avatar-pupil" not in css
     assert "resize: none" in css
     assert "::-webkit-resizer" in css
-    assert "перекинет в бота" in js
+    assert "Бот задаст пару вопросов" in js
     assert "в течение часа" in js
     assert "втечение" not in js
     assert "try-mic" in html
@@ -137,7 +137,7 @@ def main() -> int:
     assert "case1lead" in js
     assert "case1t" not in js
     assert "bench.png" not in html
-    assert "Типовые решения" in html
+    assert "Часто бывает так" in html
     assert "Уже делал" not in html
     assert "tryHit1p" in js
     assert "calc(100% - 48px)" in css
@@ -148,12 +148,12 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=101"' in html
+    assert 'href="styles.css?v=102"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=61" in html
+    assert "i18n.js?v=62" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
@@ -202,21 +202,24 @@ def main() -> int:
     assert "meAlt" not in js
     assert "Приоритизация" not in html
 
-    assert "github.com/m3dn1k/jobhunter" not in html
-    assert "github.com/m3dn1k/tg-channel-assistant" not in html
+    assert "github.com/m3dn1k/jobhunter" in html
+    assert "github.com/m3dn1k/tg-channel-assistant" in html
     assert "case2link" not in js and "case3link" not in js
     assert "case2body" not in js and "case3body" not in js
+    assert "case2alt1" not in js and "case3alt1" not in js
     assert "Код на GitHub" not in html and "Код на GitHub" not in js
+    assert "case-link" not in html
+    assert "case-gh" in html and "caseGh" in js
+    assert "GitHub →" in html and "GitHub →" in js
     assert "case2lead" in js and "case3lead" in js
     assert "case2m1v" in js and "case3m1v" in js
-    assert "с Работы России, SuperJob и Хабр Карьеры" in html
-    assert "полнотекстовым поиском FTS5" in html
-    assert "@example_channel" in js
-    assert "case-link" not in html
-    assert html.count('class="case-top"') == 3
-    assert "img/case2-1.png" in html and "img/case3-1.png" in html
-    assert (root / "img" / "case2-1.png").is_file()
-    assert (root / "img" / "case3-1.png").is_file()
+    assert "Сделал бота под поиск работы" in html
+    assert "Собрал бота по архиву канала" in html
+    assert "img/case2-1.png" not in html and "img/case3-1.png" not in html
+    assert not (root / "img" / "case2-1.png").exists()
+    assert not (root / "img" / "case3-1.png").exists()
+    assert html.count("case-plain") == 2
+    assert html.count('class="case-top"') + html.count('class="case-top ') == 3 or html.count("case-top") == 3
     assert html.count('class="case') >= 3
 
     print("ok", len(ru), "keys")

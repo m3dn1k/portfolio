@@ -6,7 +6,7 @@
   <title>Илья Медников. Автоматизация процессов</title>
   <meta name="description" content="Автоматизация операционки: разбор процесса, сборка на том что уже стоит, алерт в Telegram. Без новой CRM и без человека в штат." />
   <meta name="theme-color" content="#e6ebf1" />
-  <link rel="stylesheet" href="styles.css?v=101" />
+  <link rel="stylesheet" href="styles.css?v=102" />
   <script>
     try {
       var q = new URLSearchParams(location.search).get("lang");
@@ -158,12 +158,9 @@
         </div>
       </article>
       <article class="case">
-        <div class="case-top">
-          <figure class="case-shots" data-shots>
-            <img class="is-on case-shot-ui" src="img/case2-1.png?v=1" width="1600" height="1200" alt="" data-i18n-alt="case2alt1" />
-          </figure>
+        <div class="case-top case-plain">
           <div class="case-copy">
-            <h3 data-i18n="case2lead">Собрал Telegram-бота под любую профессию: профиль из резюме или анкеты, вакансии с Работы России, SuperJob и Хабр Карьеры, склейка дублей, оценка объявлений и черновики сопроводительных писем. Доступ по белому списку, запуск в Docker на своём сервере с мониторингом.</h3>
+            <h3 data-i18n="case2lead">Сделал бота под поиск работы. Скармливаешь резюме или отвечаешь на вопросы, он собирает вакансии с трёх площадок, ставит оценку и набрасывает сопроводительное.</h3>
             <dl class="case-metrics">
               <div>
                 <dt data-i18n="case2m1v">3</dt>
@@ -174,24 +171,18 @@
                 <dd data-i18n="case2m2d">оценка вакансии под профиль, с пояснением</dd>
               </div>
               <div>
-                <dt data-i18n="case2m3v">90</dt>
-                <dd data-i18n="case2m3d">автотестов</dd>
-              </div>
-              <div>
-                <dt data-i18n="case2m4v">24/7</dt>
-                <dd data-i18n="case2m4d">в Docker на своём сервере, с мониторингом и алертами</dd>
+                <dt data-i18n="case2m3v">24/7</dt>
+                <dd data-i18n="case2m3d">на своём сервере, с мониторингом</dd>
               </div>
             </dl>
+            <a class="case-gh" href="https://github.com/m3dn1k/jobhunter" target="_blank" rel="noopener" data-i18n="caseGh">GitHub →</a>
           </div>
         </div>
       </article>
       <article class="case">
-        <div class="case-top">
-          <figure class="case-shots" data-shots>
-            <img class="is-on case-shot-ui" src="img/case3-1.png?v=1" width="1600" height="1200" alt="" data-i18n-alt="case3alt1" />
-          </figure>
+        <div class="case-top case-plain">
           <div class="case-copy">
-            <h3 data-i18n="case3lead">Telegram-бот по архиву канала: выгрузка истории через Telethon в SQLite с полнотекстовым поиском FTS5, ответы по найденным фрагментам через GigaChat, Ollama, Grok или DeepSeek. Вход по QR, доступ по белому списку, запуск в Docker.</h3>
+            <h3 data-i18n="case3lead">Собрал бота по архиву канала. Спрашиваешь своими словами, он находит нужные посты и отвечает по ним, со ссылками на источники.</h3>
             <dl class="case-metrics">
               <div>
                 <dt data-i18n="case3m1v">FTS5</dt>
@@ -202,14 +193,11 @@
                 <dd data-i18n="case3m2d">модели для ответа: GigaChat, Ollama, Grok, DeepSeek</dd>
               </div>
               <div>
-                <dt data-i18n="case3m3v">13</dt>
-                <dd data-i18n="case3m3d">автотестов</dd>
-              </div>
-              <div>
-                <dt data-i18n="case3m4v">24/7</dt>
-                <dd data-i18n="case3m4d">в Docker на своём сервере, с мониторингом и алертами</dd>
+                <dt data-i18n="case3m3v">24/7</dt>
+                <dd data-i18n="case3m3d">на своём сервере, с мониторингом</dd>
               </div>
             </dl>
+            <a class="case-gh" href="https://github.com/m3dn1k/tg-channel-assistant" target="_blank" rel="noopener" data-i18n="caseGh">GitHub →</a>
           </div>
         </div>
       </article>
@@ -217,8 +205,8 @@
 
     <section class="try wrap" id="try">
       <div class="try-main">
-        <h2 data-i18n="tryTitle">Первичная аналитика бесплатно</h2>
-        <p class="try-lead" data-i18n="tryLead">За 15 минут разберем вашу ситуацию и найдем минимально рабочее решение. В поле напишите или надиктуйте вашу проблему, после этого вас перекинет в бота, который задаст пару вопросов. Дальше я в течение часа свяжусь с вами, разложу процесс по полочкам и предложу решение «под ключ».</p>
+        <h2 data-i18n="tryTitle">Первый разбор бесплатно</h2>
+        <p class="try-lead" data-i18n="tryLead">Напишите или надиктуйте, что уже достало. Бот задаст пару вопросов, я свяжусь в течение часа, разберём процесс и решим, что делать.</p>
         <form id="try-form" action="/api/lead" method="post" novalidate>
           <div class="try-field">
             <textarea id="try-pain" name="text" rows="6" maxlength="280" required data-i18n-aria="tryLabel" aria-label="Что уже достало" data-i18n-placeholder="tryPlaceholder" placeholder="Каждую пятницу руками свожу одну и ту же таблицу"></textarea>
@@ -240,7 +228,7 @@
         </form>
       </div>
       <aside class="try-kit" aria-labelledby="try-kit-title">
-        <h3 id="try-kit-title" data-i18n="tryKit">Типовые решения</h3>
+        <h3 id="try-kit-title" data-i18n="tryKit">Часто бывает так</h3>
         <div class="try-kit-cols" aria-hidden="true">
           <span data-i18n="tryKitP">Проблема</span>
           <span data-i18n="tryKitS">Решение</span>
@@ -300,7 +288,7 @@
     </a>
   </footer>
 
-  <script src="i18n.js?v=61"></script>
+  <script src="i18n.js?v=62"></script>
   <script src="live.js?v=1"></script>
   <script>
     (function () {
