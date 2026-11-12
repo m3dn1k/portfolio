@@ -154,12 +154,12 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=107"' in html
+    assert 'href="styles.css?v=108"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=65" in html
+    assert "i18n.js?v=66" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
@@ -184,7 +184,15 @@ def main() -> int:
     assert html.count("me-cell") == 4
     assert "me-ico" not in html
     assert html.count("me-mark") == 4
-    assert "toTop" in js and "Наверх" in html and "Back to top" in js and "返回顶部" in js
+    assert "to-top" not in html and "Наверх" not in html
+    assert "toStars" in js and "через тернии к звездам" in html
+    assert "stack-tag" not in html
+    assert "Инструменты, не витрина" not in html and "Инструменты, не витрина" not in js
+    assert "Tools, not a showcase" not in js and "不是橱窗" not in js
+    assert "fact-scribble" not in html
+    assert 'data-i18n="liveKicker"' in html and "Сколько:" not in html
+    assert "<h2" in html and "live-kicker" in html
+    assert "live.js?v=2" in html
     assert "nav-menu" in html and "nav-burger" in html
     assert "hero-intro" in html
     assert "data-reveal" in html

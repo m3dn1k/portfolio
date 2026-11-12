@@ -1,11 +1,17 @@
 (function () {
   var KEYS = ["visits", "invite", "project", "wink"];
 
+  function shown(v) {
+    if (v == null || v === "") return "—";
+    return String(v);
+  }
+
   function paint(data) {
-    if (!data) return;
     KEYS.forEach(function (k) {
       var el = document.querySelector("[data-live='" + k + "']");
-      if (el && data[k] != null) el.textContent = String(data[k]);
+      if (!el) return;
+      if (data && data[k] != null && data[k] !== "") el.textContent = String(data[k]);
+      else if (!el.textContent || !String(el.textContent).trim()) el.textContent = "—";
     });
   }
 
@@ -36,7 +42,7 @@
     hit(k);
   }
 
-  get().then(paint);
+  get().then(function (data) { paint(data || {}); });
   once("live_visits", "visits");
 
   var invite = document.querySelector("[data-hit='invite']");

@@ -386,33 +386,29 @@ a {
 .hero-facts li {
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: center;
   min-width: 0;
   color: var(--ink);
 }
 
 .fact-ico {
-  flex: 0 0 32px;
-  width: 32px;
-  height: 32px;
-  margin-top: 2px;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--bg-2);
+  color: var(--ink);
 }
 
 .fact-ico svg {
   display: block;
+  width: 22px;
+  height: 22px;
   overflow: visible;
-}
-
-.hero-facts li:nth-child(1) .fact-ico {
-  transform: rotate(-7deg);
-}
-
-.hero-facts li:nth-child(2) .fact-ico {
-  transform: rotate(7deg);
-}
-
-.hero-facts li:nth-child(3) .fact-ico {
-  transform: rotate(-5deg);
 }
 
 .fact-copy {
@@ -484,26 +480,28 @@ a {
 }
 
 .live-kicker {
-  margin: 0 0 8px;
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  font-family: var(--font);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
   color: var(--ink);
 }
 
 .live ul {
   display: grid;
-  gap: 7px;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
+  max-width: 28rem;
 }
 
 .live li {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.35em 0.7em;
+  gap: 0.35em 1rem;
   align-items: baseline;
 }
 
@@ -520,12 +518,14 @@ a {
 }
 
 .live b {
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: -0.04em;
+  min-width: 2ch;
+  font-family: var(--font);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
+  text-align: right;
 }
 
 .hero-avatar {
@@ -1906,5 +1906,48 @@ a {
   .try-main,
   .try-kit {
     height: 100%;
+  }
+}
+
+
+/* --- polish: equal case 2-3 cards --- */
+@media (min-width: 768px) {
+  .work {
+    align-items: stretch;
+  }
+
+  .work .case {
+    min-width: 0;
+    height: 100%;
+  }
+
+  .case-plain {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .case-plain .case-copy {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+  }
+
+  .case-plain .case-metrics {
+    margin-top: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .case-plain .case-gh {
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .case-plain .case-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
   }
 }
