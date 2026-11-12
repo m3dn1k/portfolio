@@ -1581,16 +1581,18 @@ a {
 .vibe-how,
 .vibe-last {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
-.vibe-how-prefix,
-.vibe-last-prefix {
-  color: var(--muted);
-  font-size: 0.92rem;
-  letter-spacing: -0.02em;
+.hero-copy .vibe-how-prefix,
+.hero-copy .vibe-last-prefix {
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
 }
 
 .hero {
