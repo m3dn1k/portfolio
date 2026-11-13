@@ -6,7 +6,7 @@
   <title>Илья Медников. Избавляю бизнес от рутины</title>
   <meta name="description" content="Автоматизация операционки: разбор процесса, сборка на том что уже стоит, алерт в Telegram. Без новой CRM и без человека в штат." />
   <meta name="theme-color" content="#e6ebf1" />
-  <link rel="stylesheet" href="styles.css?v=115" />
+  <link rel="stylesheet" href="styles.css?v=116" />
   <script>
     try {
       var q = new URLSearchParams(location.search).get("lang");
@@ -368,14 +368,31 @@
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       document.documentElement.classList.add("js-reveal");
       var nodes = document.querySelectorAll("[data-reveal]");
+      function isDesk() {
+        return window.matchMedia("(min-width: 1024px)").matches;
+      }
+      function viewH() {
+        return (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+      }
       function atEnd() {
         var doc = document.documentElement;
-        return window.scrollY + window.innerHeight >= doc.scrollHeight - 4;
+        var y = window.scrollY;
+        if (window.visualViewport && typeof window.visualViewport.pageTop === "number") {
+          y = window.visualViewport.pageTop;
+        }
+        return y + viewH() >= doc.scrollHeight - 4;
+      }
+      function inPadMobile(el) {
+        var r = el.getBoundingClientRect();
+        var vh = viewH();
+        var pad = Math.max(24, Math.round(vh * 0.06));
+        return r.top < vh - pad && r.bottom > 16;
       }
       function sync() {
         var end = atEnd();
+        var desk = isDesk();
         nodes.forEach(function (el) {
-          el.classList.toggle("is-in", end || el.__inPad);
+          el.classList.toggle("is-in", end || (desk ? el.__inPad : inPadMobile(el)));
         });
       }
       var io = new IntersectionObserver(function (entries) {
@@ -387,6 +404,10 @@
       nodes.forEach(function (el) { io.observe(el); });
       window.addEventListener("scroll", sync, { passive: true });
       window.addEventListener("resize", sync);
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener("scroll", sync, { passive: true });
+        window.visualViewport.addEventListener("resize", sync);
+      }
       sync();
     })();
   </script>
