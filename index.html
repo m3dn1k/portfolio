@@ -150,28 +150,14 @@
     <section class="work wrap" data-reveal>
       <article class="case">
         <div class="case-top">
-          <figure class="case-shots" data-shots>
-            <img class="is-on case-shot-ui" src="img/case1-1.png?v=21" width="1600" height="1200" alt="" data-i18n-alt="case1alt1" />
-            <img class="case-shot-photo" src="img/case1-2.png?v=10" width="1600" height="1200" alt="" data-i18n-alt="case1alt2" />
-            <div class="case-dots" aria-hidden="true">
-              <span class="is-on"></span>
-              <span></span>
-            </div>
+          <figure class="case-shots">
+            <img class="is-on case-shot-photo" src="img/case1-2.png?v=10" width="1600" height="1200" alt="" data-i18n-alt="case1alt2" />
           </figure>
           <div class="case-copy">
             <h3 data-i18n="case1a">Разработал диагностический модуль двух версий: desktop и portable.</h3>
             <p class="case-rest" data-i18n="case1b">Полный анализ рабочего места за 2 минуты + генерация отчетов и документа на подпись с клиентом</p>
             <p class="chips case-chips" aria-hidden="true"><span class="chip">desktop</span><span class="chip">portable</span></p>
-            <dl class="case-metrics">
-              <div>
-                <dt data-i18n="case1m1v">x10</dt>
-                <dd data-i18n="case1m1d">раз быстрее анализ парка компьютеров</dd>
-              </div>
-              <div>
-                <dt data-i18n="case1m2v">&lt; 10 мес.</dt>
-                <dd data-i18n="case1m2d">окупаемость за счет экономии рабочих часов сис. админов</dd>
-              </div>
-            </dl>
+            <p class="case-nda" data-i18n="case1nda">Информация под NDA. Подробности на созвоне</p>
           </div>
         </div>
       </article>
@@ -380,31 +366,6 @@
         });
       }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
       nodes.forEach(function (el) { io.observe(el); });
-    })();
-  </script>
-  <script>
-    (function () {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      document.querySelectorAll("[data-shots]").forEach(function (box) {
-        var imgs = box.querySelectorAll("img");
-        var dots = box.querySelectorAll(".case-dots span");
-        var i = 0;
-        var timer;
-        function tick() {
-          i = (i + 1) % imgs.length;
-          imgs.forEach(function (img, k) { img.classList.toggle("is-on", k === i); });
-          dots.forEach(function (dot, k) { dot.classList.toggle("is-on", k === i); });
-        }
-        function start() {
-          clearInterval(timer);
-          timer = setInterval(tick, 3000);
-        }
-        start();
-        document.addEventListener("visibilitychange", function () {
-          if (document.hidden) clearInterval(timer);
-          else start();
-        });
-      });
     })();
   </script>
   <script>

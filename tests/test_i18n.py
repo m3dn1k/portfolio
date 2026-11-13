@@ -52,10 +52,11 @@ def main() -> int:
     assert "case-metrics" in html
     assert html.find("</figure>") < html.find('class="case-copy"') < html.find('class="case-metrics"')
     assert 'class="metrics"' not in html
-    assert html.count("img/case1-") == 2
-    assert "case1-1.png" in html and "case1-2.png" in html
-    assert (root / "img" / "case1-1.png").is_file()
+    assert html.count("img/case1-") == 1
+    assert "case1-1.png" not in html and "case1-2.png" in html
     assert (root / "img" / "case1-2.png").is_file()
+    assert "case-dots" not in html
+    assert 'data-shots>' not in html and "data-shots=" not in html
     assert "case1alt3" not in js
     assert "Разработал диагностический модуль" in js
     assert "desktop и portable" in js
@@ -63,6 +64,7 @@ def main() -> int:
     assert "case1p1" not in js and "case1p5" not in js
     assert "case-points" not in html and "case-points" not in css
     assert "case-shot-photo" in html
+    assert "case-shot-ui" not in html
     assert "case1when" not in html and "case1when" not in js
     assert "case-when" not in html and "case-when" not in css
     assert "margin-top: auto" in css
@@ -70,15 +72,20 @@ def main() -> int:
     assert "align-self: start" in css
     assert "align-items: stretch" in css.split(".case-top {", 2)[-1][:200]
     assert "min-width: 0" in css
-    assert "x10" in js and "x10" in html
-    assert "< 10 мес." in js
-    assert "&lt; 10 мес." in html
-    assert "сис. админов" in js
+    assert "x10" not in js and "x10" not in html
+    assert "< 10 мес." not in js and "&lt; 10 мес." not in html
+    assert "сис. админов" not in js
+    assert "case1m1v" not in js and "case1m2v" not in js
+    assert "case1alt1" not in js and "case1alt1" not in html
+    assert 'data-i18n="case1nda"' in html
+    assert "Информация под NDA. Подробности на созвоне" in html and "Информация под NDA. Подробности на созвоне" in js
+    assert "Under NDA. Details on a call" in js
+    assert "相关信息受保密协议约束，详情可在通话中沟通" in js
     assert "90%" not in js and "42 ч" not in js
     assert "30 компаний" not in js
     assert "case-dots button" not in html
     assert "case1dot" not in js and "case1shots" not in js
-    assert ", 3000)" in html
+    assert ", 3000)" not in html
     assert "4500" not in html
     assert "x5" not in html and "SaaS" not in html and "Saas" not in html
     assert "Разработала CRM" not in html
@@ -166,10 +173,10 @@ def main() -> int:
     assert "showErr(true)" in html
     assert "base = pain.value" in html
     assert 'send.setAttribute("aria-busy", "true")' in html
-    assert "document.hidden) clearInterval(timer)" in html
+    assert "document.hidden) clearInterval(timer)" not in html
     assert 'fact1b: "2025"' in js
     assert "2024" not in js and ">2024<" not in html
-    assert "case-shot-ui" in html
+    assert "case-shot-ui" not in html
     assert "border-radius: inherit" not in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
     from PIL import Image
     import numpy as np
@@ -178,8 +185,6 @@ def main() -> int:
     rowdiff = np.abs(shot[-40:].astype(np.int16) - shot[-41:-1].astype(np.int16)).mean()
     assert rowdiff > 0.5, rowdiff
     assert (shot[:280, :280].max(axis=2) < 18).sum() < 80
-    one = np.array(Image.open(root / "img" / "case1-1.png").convert("RGB"))
-    assert one.shape[0] * 4 == one.shape[1] * 3, one.shape
     assert "background: #cdd2dd" in css
     assert "padding: 6%" not in css
     assert "me-stage" in html

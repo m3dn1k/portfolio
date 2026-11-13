@@ -1515,6 +1515,11 @@ a {
     padding-top: 16px;
   }
 
+  .case-nda {
+    margin-top: auto;
+    padding-top: 16px;
+  }
+
   .try {
     grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.86fr);
     gap: 36px 64px;
@@ -1758,6 +1763,13 @@ a {
 
 .case-chips {
   margin-top: 12px;
+}
+
+.case-nda {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.35;
 }
 
 .case-metrics {
