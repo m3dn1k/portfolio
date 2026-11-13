@@ -77,10 +77,12 @@ def main() -> int:
     assert "сис. админов" not in js
     assert "case1m1v" not in js and "case1m2v" not in js
     assert "case1alt1" not in js and "case1alt1" not in html
-    assert 'data-i18n="case1nda"' in html
-    assert "Информация под NDA. Подробности на созвоне" in html and "Информация под NDA. Подробности на созвоне" in js
-    assert "Under NDA. Details on a call" in js
-    assert "相关信息受保密协议约束，详情可在通话中沟通" in js
+    assert 'data-i18n="case1ndaA"' in html and 'data-i18n="case1ndaB"' in html
+    assert "case-nda-ico" in html
+    assert "Информация под NDA" in html and "Подробности на созвоне" in html
+    assert "Информация под NDA" in js and "Подробности на созвоне" in js
+    assert "Under NDA" in js and "Details on a call" in js
+    assert "相关信息受保密协议约束" in js and "详情可在通话中沟通" in js
     assert "90%" not in js and "42 ч" not in js
     assert "30 компаний" not in js
     assert "case-dots button" not in html

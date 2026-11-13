@@ -1517,7 +1517,6 @@ a {
 
   .case-nda {
     margin-top: auto;
-    padding-top: 16px;
   }
 
   .try {
@@ -1766,10 +1765,56 @@ a {
 }
 
 .case-nda {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 18px 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
+  padding: 12px 14px;
+  background: #fff;
+  border-radius: 16px;
+  color: var(--ink);
+}
+
+.case-nda-ico {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+
+.case-nda-ico svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  overflow: visible;
+}
+
+.case-nda-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  margin: 0;
+}
+
+.case-nda-copy strong {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.case-nda-copy span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   line-height: 1.35;
+  color: var(--ink);
 }
 
 .case-metrics {
