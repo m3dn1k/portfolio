@@ -168,7 +168,7 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=112"' in html
+    assert 'href="styles.css?v=113"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
@@ -210,9 +210,10 @@ def main() -> int:
     assert "data-reveal" in html
     assert "js-reveal" in css
     assert "unobserve" not in html
-    assert 'classList.toggle("is-in", entry.isIntersecting)' in html
+    assert "atEnd" in html and "scrollHeight" in html
     assert 'class="hero-side" data-reveal' not in html
     assert 'class="hero-facts" data-reveal' not in html
+    assert 'class="foot wrap" data-reveal' not in html
     assert "me-motto" in html
     assert html.find("me1t") < html.find("me1b") < html.find("me1m")
     assert html.find("me1m") < html.find("me2t") < html.find("me3t") < html.find("me4t")
