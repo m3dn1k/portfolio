@@ -22,7 +22,9 @@ def main() -> int:
     assert "#f3eee4" in css, "milk beige backup missing"
     assert "#e6ebf1" in css, "gray-blue token missing"
     assert "#c8d0db" in css
-    assert "—" not in html and "—" not in js
+    # Em dash only in the RU hero: "Я — Илья Медников,"
+    assert html.count("—") == 1 and "Я&nbsp;— " in html
+    assert js.count("—") == 1 and "Я\\u00a0— " in js
     assert "–" not in html and "–" not in js
 
     ru, en, zh = keys_for("ru"), keys_for("en"), keys_for("zh")

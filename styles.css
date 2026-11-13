@@ -478,7 +478,7 @@ a {
 }
 
 .live-kicker {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   font-family: var(--font);
   font-size: clamp(1.35rem, 2.4vw, 1.8rem);
   font-weight: 700;
@@ -490,7 +490,7 @@ a {
 .live ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 16px;
+  gap: 10px 12px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -502,8 +502,11 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 6px;
   min-width: 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #fff;
 }
 
 .live li span {
@@ -1415,19 +1418,74 @@ a {
   }
 
   .foot {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "copy note actions";
+    position: relative;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "copy actions";
     align-items: center;
     gap: 16px 24px;
+  }
+
+  .copy {
+    justify-self: start;
+  }
+
+  .ai-note {
+    grid-area: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: min(36rem, calc(100% - 30rem));
+    text-align: center;
+    z-index: 0;
   }
 
   .foot-actions {
     justify-self: end;
     justify-content: flex-end;
   }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .foot {
+    position: static;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "note"
+      "copy"
+      "actions";
+    justify-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .copy,
+  .ai-note,
+  .foot-actions {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: auto;
+    max-width: none;
+    justify-self: center;
+  }
 
   .to-stars {
+    justify-self: center;
+  }
+}
+
+@media (min-width: 900px) {
+  .to-stars {
     justify-self: end;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .to-stars {
     white-space: nowrap;
   }
 
@@ -1596,8 +1654,8 @@ a {
 }
 
 .hero {
-  padding-bottom: 20px;
-  gap: 14px;
+  padding-bottom: 24px;
+  gap: 18px;
 }
 
 .hero-intro {
@@ -1645,7 +1703,7 @@ a {
 .live {
   background: #f4f7fa;
   border-radius: 24px;
-  padding: 16px 20px 14px;
+  padding: 20px 20px 18px;
 }
 
 .hero-facts {
@@ -1663,8 +1721,8 @@ a {
 .work {
   display: grid;
   gap: 14px;
-  padding-top: 12px;
-  padding-bottom: 8px;
+  padding-top: 24px;
+  padding-bottom: 12px;
 }
 
 .case + .case {
@@ -1715,8 +1773,8 @@ a {
 
 .try {
   gap: 14px;
-  padding-top: 20px;
-  padding-bottom: 8px;
+  padding-top: 32px;
+  padding-bottom: 12px;
   align-items: stretch;
 }
 
@@ -1749,7 +1807,7 @@ a {
 }
 
 .stack {
-  padding: 8px 0 20px;
+  padding: 24px 0 24px;
 }
 
 .stack-tag {
@@ -1760,7 +1818,7 @@ a {
 }
 
 .me {
-  padding-top: 8px;
+  padding-top: 24px;
 }
 
 .me-cell {
@@ -1785,7 +1843,7 @@ a {
 }
 
 .foot {
-  padding: 20px 0 32px;
+  padding: 32px 0 40px;
 }
 
 @media (max-width: 767px) {
@@ -1814,8 +1872,8 @@ a {
       "copy avatar"
       "copy facts"
       "live live";
-    gap: 10px;
-    padding-top: 8px;
+    gap: 12px;
+    padding-top: 12px;
     padding-bottom: 0;
     align-items: start;
   }
@@ -1827,7 +1885,7 @@ a {
   .hero-copy {
     display: block;
     grid-area: copy;
-    padding: 20px 28px 14px;
+    padding: 22px 28px 18px;
     height: 100%;
     box-sizing: border-box;
   }
@@ -1844,7 +1902,7 @@ a {
     display: block;
     width: min(100%, 34vh, 300px);
     aspect-ratio: 1 / 1;
-    margin: 8px 0 0;
+    margin: 16px 0 0;
     padding: 0;
     background: none;
   }
@@ -1865,21 +1923,22 @@ a {
   .hero-side {
     grid-area: live;
     width: auto;
+    margin-top: 8px;
   }
 
   .live {
     height: auto;
     width: 100%;
-    padding: 8px 20px 10px;
+    padding: 22px 24px 20px;
   }
 
   .live-kicker {
-    margin-bottom: 6px;
+    margin-bottom: 16px;
   }
 
   .live ul {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px 20px;
+    gap: 12px 14px;
   }
 
   .hero-facts {
@@ -1900,7 +1959,7 @@ a {
   .work {
     grid-template-columns: 1fr 1fr;
     gap: 14px;
-    padding-top: 4px;
+    padding-top: 28px;
   }
 
   .work .case:first-child {
@@ -1915,7 +1974,7 @@ a {
   .try {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: 14px;
-    padding-top: 22px;
+    padding-top: 36px;
   }
 
   .try-main,
@@ -1925,60 +1984,6 @@ a {
 }
 
 
-@media (min-width: 768px) and (max-height: 700px) {
-  .hero {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    gap: 8px;
-  }
-
-  .hero-copy {
-    padding: 14px 20px 12px;
-  }
-
-  .hero h1 {
-    font-size: clamp(1.5rem, 3.4vw, 2.35rem);
-  }
-
-  .vibe {
-    margin-top: 8px;
-    gap: 6px;
-  }
-
-  .vibe-hook {
-    font-size: clamp(1.02rem, 2vw, 1.22rem);
-  }
-
-  .chip {
-    min-height: 28px;
-  }
-
-  .hero-avatar {
-    width: min(100%, 28vh, 240px);
-    margin-top: 4px;
-  }
-
-  .hero-facts {
-    gap: 6px;
-  }
-
-  .hero-facts li {
-    padding: 10px 12px;
-  }
-
-  .live {
-    padding: 10px 18px 10px;
-  }
-
-  .live-kicker {
-    margin-bottom: 6px;
-    font-size: clamp(1.2rem, 2vw, 1.55rem);
-  }
-
-  .live b {
-    font-size: clamp(1.35rem, 2.6vw, 1.8rem);
-  }
-}
 
 /* --- polish: equal case 2-3 cards --- */
 @media (min-width: 768px) {
