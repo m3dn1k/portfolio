@@ -2142,8 +2142,53 @@ a {
 }
 
 @media (max-width: 767px) {
-  .foot .copy {
+  .foot {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "note note"
+      "copy actions";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 10px;
+  }
+
+  .foot .ai-note {
     text-align: center;
+    white-space: pre-line;
+    justify-self: stretch;
+  }
+
+  .foot .copy {
+    text-align: left;
+    margin-top: 0;
+    justify-self: start;
+    align-self: center;
+  }
+
+  .foot-actions {
+    display: flex;
+    justify-self: end;
+    width: auto;
+    margin-top: 0;
+    grid-template-columns: none;
+  }
+
+  .to-stars {
+    width: auto;
+    max-width: 100%;
+    justify-self: end;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 10px 14px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .to-stars {
+    padding: 10px 10px;
+    font-size: 0.84rem;
+    gap: 6px;
   }
 }
 
