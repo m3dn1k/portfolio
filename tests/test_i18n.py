@@ -124,6 +124,7 @@ def main() -> int:
     assert "var(--line)" not in thumb
     assert "liveKicker" in js
     assert "fact1a" in js and "fact1b" in js
+    assert 'fill="#f4f7fa"' in html and "M16 2a14 14 0 1 0 0 28" in html
     assert 'data-i18n="fact1"' not in html
     assert "grid-area: note" in css
     assert "ai-note" in html
@@ -168,7 +169,7 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=113"' in html
+    assert 'href="styles.css?v=114"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
