@@ -2438,8 +2438,8 @@ a {
   }
 
   .hero-avatar img {
-    max-width: 20rem;
-    max-height: 20rem;
+    max-width: 200px;
+    max-height: 200px;
     margin: auto;
   }
 }

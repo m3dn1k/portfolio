@@ -169,9 +169,10 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=118"' in html
+    assert 'href="styles.css?v=119"' in html
     assert "100svh" in css and "100dvh" in css
     assert "--nav-h: 60px" in css
+    assert ".hero-avatar img" in css and "max-height: 200px" in css.split("mobile first-screen hero", 1)[1]
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
