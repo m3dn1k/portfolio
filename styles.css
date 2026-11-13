@@ -478,7 +478,7 @@ a {
 }
 
 .live-kicker {
-  margin: 0 0 14px;
+  margin: -0.2em 0 14px;
   font-family: var(--font);
   font-size: clamp(1.35rem, 2.4vw, 1.8rem);
   font-weight: 700;
@@ -1703,7 +1703,7 @@ a {
 .live {
   background: #f4f7fa;
   border-radius: 24px;
-  padding: 20px 20px 18px;
+  padding: 20px;
 }
 
 .hero-facts {
@@ -1873,7 +1873,7 @@ a {
       "copy facts"
       "live live";
     gap: 12px;
-    padding-top: 12px;
+    padding-top: 24px;
     padding-bottom: 0;
     align-items: start;
   }
@@ -1923,13 +1923,13 @@ a {
   .hero-side {
     grid-area: live;
     width: auto;
-    margin-top: 8px;
+    margin-top: 12px;
   }
 
   .live {
     height: auto;
     width: 100%;
-    padding: 22px 24px 20px;
+    padding: 24px;
   }
 
   .live-kicker {
@@ -1959,7 +1959,7 @@ a {
   .work {
     grid-template-columns: 1fr 1fr;
     gap: 14px;
-    padding-top: 28px;
+    padding-top: 24px;
   }
 
   .work .case:first-child {
