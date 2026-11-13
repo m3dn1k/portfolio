@@ -6,7 +6,7 @@
   <title>Илья Медников. Избавляю бизнес от рутины</title>
   <meta name="description" content="Автоматизация операционки: разбор процесса, сборка на том что уже стоит, алерт в Telegram. Без новой CRM и без человека в штат." />
   <meta name="theme-color" content="#e6ebf1" />
-  <link rel="stylesheet" href="styles.css?v=111" />
+  <link rel="stylesheet" href="styles.css?v=112" />
   <script>
     try {
       var q = new URLSearchParams(location.search).get("lang");
@@ -80,7 +80,7 @@
           <img class="hero-avatar-wink" src="img/avatar-wink.png?v=3" width="1024" height="1024" alt="" />
         </button>
       </div>
-      <div class="hero-side" data-reveal>
+      <div class="hero-side">
         <aside class="live" aria-labelledby="live-kicker">
           <h2 class="live-kicker" id="live-kicker" data-i18n="liveKicker">Сколько</h2>
           <ul aria-live="polite">
@@ -91,7 +91,7 @@
           </ul>
         </aside>
       </div>
-      <ul class="hero-facts" data-reveal>
+      <ul class="hero-facts">
         <li>
           <span class="fact-ico" aria-hidden="true">
             <svg viewBox="0 0 32 32" width="32" height="32">
@@ -132,7 +132,7 @@
         </li>
         <li>
           <span class="fact-ico" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" fill-rule="evenodd" d="M14 3.8A12.2 12.2 0 1 0 14 28.2 12.2 12.2 0 1 0 14 3.8ZM19.2 7.2A8.8 8.8 0 1 0 19.2 24.8 8.8 8.8 0 1 0 19.2 7.2Z"/><path fill="currentColor" d="M24.6 3 25.95 6.34 29.55 6.59 26.79 8.91 27.66 12.41 24.6 10.5 21.54 12.41 22.41 8.91 19.65 6.59 23.25 6.34Z"/></svg>
+            <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M16.2 11.2 1.2 23.2 8.8 29.2 19.6 13.6z"/><path fill="currentColor" d="M18.8 12.8 9.2 29.6 16.4 30 22.4 13.2z"/><circle cx="22.6" cy="8.6" r="6.1" fill="currentColor"/></svg>
           </span>
           <span class="fact-copy">
             <span class="fact-kicker" data-i18n="fact3a">Ищу покоя, умиротворения,</span>
@@ -147,8 +147,8 @@
       </ul>
     </section>
 
-    <section class="work wrap" data-reveal>
-      <article class="case">
+    <section class="work wrap">
+      <article class="case" data-reveal>
         <div class="case-top">
           <figure class="case-shots">
             <img class="is-on case-shot-photo" src="img/case1-2.png?v=10" width="1600" height="1200" alt="" data-i18n-alt="case1alt2" />
@@ -171,7 +171,7 @@
           </div>
         </div>
       </article>
-      <article class="case">
+      <article class="case" data-reveal>
         <div class="case-top case-plain">
           <div class="case-copy">
             <!-- Сделал бота под поиск работы -->
@@ -181,22 +181,22 @@
             <dl class="case-metrics">
               <div>
                 <dt data-i18n="case2m1v">3</dt>
-                <dd data-i18n="case2m1d">источника вакансий: Работа России, SuperJob, Хабр Карьера</dd>
+                <dd data-i18n="case2m1d">источника вакансий</dd>
               </div>
               <div>
                 <dt data-i18n="case2m2v">0-100</dt>
-                <dd data-i18n="case2m2d">оценка вакансии под профиль, с пояснением</dd>
+                <dd data-i18n="case2m2d">оценка с пояснением</dd>
               </div>
               <div>
-                <dt data-i18n="case2m3v">24/7</dt>
-                <dd data-i18n="case2m3d">на своём сервере, с мониторингом</dd>
+                <dt data-i18n="case2m3v">2</dt>
+                <dd data-i18n="case2m3d">формата MD и CSV</dd>
               </div>
             </dl>
             <a class="case-gh" href="https://github.com/m3dn1k/jobhunter" target="_blank" rel="noopener" data-i18n="caseGh">GitHub →</a>
           </div>
         </div>
       </article>
-      <article class="case">
+      <article class="case" data-reveal>
         <div class="case-top case-plain">
           <div class="case-copy">
             <!-- Собрал бота по архиву канала -->
@@ -205,15 +205,15 @@
             <dl class="case-metrics">
               <div>
                 <dt data-i18n="case3m1v">FTS5</dt>
-                <dd data-i18n="case3m1d">полнотекстовый поиск по постам, ранжирование BM25</dd>
+                <dd data-i18n="case3m1d">поиск по постам, BM25</dd>
               </div>
               <div>
                 <dt data-i18n="case3m2v">4</dt>
-                <dd data-i18n="case3m2d">модели для ответа: GigaChat, Ollama, Grok, DeepSeek</dd>
+                <dd data-i18n="case3m2d">модели для ответа</dd>
               </div>
               <div>
-                <dt data-i18n="case3m3v">24/7</dt>
-                <dd data-i18n="case3m3d">на своём сервере, с мониторингом</dd>
+                <dt data-i18n="case3m3v">цитаты</dt>
+                <dd data-i18n="case3m3d">ссылки на посты</dd>
               </div>
             </dl>
             <a class="case-gh" href="https://github.com/m3dn1k/tg-channel-assistant" target="_blank" rel="noopener" data-i18n="caseGh">GitHub →</a>
@@ -244,7 +244,7 @@
             </button>
             <p class="try-err" id="try-err" hidden role="status">
               <span class="try-err-bang" aria-hidden="true">!</span>
-              <span data-i18n="tryErr">поле не должно быть пустым</span>
+              <span data-i18n="tryErr">Временная заглушка, автор лень</span>
             </p>
           </div>
         </form>
@@ -334,7 +334,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=66"></script>
+  <script src="i18n.js?v=67"></script>
   <script src="live.js?v=2"></script>
   <script>
     (function () {
@@ -370,11 +370,9 @@
       var nodes = document.querySelectorAll("[data-reveal]");
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
+          entry.target.classList.toggle("is-in", entry.isIntersecting);
         });
-      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      }, { threshold: 0.18, rootMargin: "0px 0px -14% 0px" });
       nodes.forEach(function (el) { io.observe(el); });
     })();
   </script>
@@ -408,7 +406,7 @@
       }
       function showErr(api) {
         clearTimeout(errT);
-        if (errMsg) errMsg.textContent = packText(api ? "tryApiErr" : "tryErr");
+        if (errMsg) errMsg.textContent = packText("tryErr");
         if (err) {
           err.classList.remove("is-fade");
           err.hidden = false;
@@ -443,11 +441,10 @@
         form.addEventListener("submit", function (e) {
           e.preventDefault();
           var text = pain.value.trim();
+          showErr();
           if (!text) {
-            showErr();
             return;
           }
-          hideErr();
           if (send) {
             send.disabled = true;
             send.setAttribute("aria-busy", "true");
@@ -459,11 +456,7 @@
             body: JSON.stringify({ pain: text, lang: lang })
           }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
             .then(function (x) {
-              if (!x.ok || !x.d.token || !x.d.bot) {
-                showErr(true);
-                return;
-              }
-              location.href = "tg://resolve?domain=" + encodeURIComponent(x.d.bot) + "&start=" + encodeURIComponent(x.d.token);
+              showErr(true);
             }).catch(function () {
               showErr(true);
             }).finally(function () {

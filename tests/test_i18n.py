@@ -39,7 +39,10 @@ def main() -> int:
     assert "try-err" in html
     assert "tryErr" in js
     assert "try-label" not in html
-    assert "поле не должно быть пустым" in html
+    assert "Временная заглушка, автор лень" in html and "Временная заглушка, автор лень" in js
+    assert "поле не должно быть пустым" not in html and "поле не должно быть пустым" not in js
+    assert "Temporary placeholder, the author got lazy" in js
+    assert "临时占位，作者偷懒了" in js
     assert "Напиши, что уже достало" not in html and "Напиши, что уже достало" not in js
     assert "try-err-bang" in html
     assert html.find('class="try-field"') < html.find("try-err") < html.find("</form>")
@@ -165,12 +168,12 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=111"' in html
+    assert 'href="styles.css?v=112"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=66" in html
+    assert "i18n.js?v=67" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
@@ -206,6 +209,10 @@ def main() -> int:
     assert "hero-intro" in html
     assert "data-reveal" in html
     assert "js-reveal" in css
+    assert "unobserve" not in html
+    assert 'classList.toggle("is-in", entry.isIntersecting)' in html
+    assert 'class="hero-side" data-reveal' not in html
+    assert 'class="hero-facts" data-reveal' not in html
     assert "me-motto" in html
     assert html.find("me1t") < html.find("me1b") < html.find("me1m")
     assert html.find("me1m") < html.find("me2t") < html.find("me3t") < html.find("me4t")
