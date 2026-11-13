@@ -2082,8 +2082,6 @@ a {
 
   .case-plain .case-metrics {
     margin-top: auto;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
     align-items: stretch;
   }
 
@@ -2092,9 +2090,102 @@ a {
   }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 1024px) {
+  .case-plain .case-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1023px) {
   .case-plain .case-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
+  }
+
+  .case-plain .case-metrics > :nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .case-plain .case-metrics dt {
+    white-space: nowrap;
+  }
+}
+
+/* Keep the hero name (and the ZH name) on one line. */
+.hero .who-tight {
+  white-space: nowrap;
+}
+
+[data-lang="zh"] .hero .who-tight {
+  white-space: normal;
+}
+
+[data-lang="zh"] .hero .who-name {
+  white-space: nowrap;
+}
+
+@media (max-width: 413px) {
+  .me-cell h3 {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 389px) {
+  .hero h1 {
+    font-size: 1.68rem;
+  }
+
+  .me-cell h3 {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .foot .copy {
+    text-align: center;
+  }
+}
+
+/* Tablet: 44px tap targets, without changing desktop ≥1024. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .langs button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-menu > .pills .pill,
+  .pills .pill {
+    box-sizing: border-box;
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .try-mic,
+  .try-send {
+    width: 44px;
+    height: 44px;
+    bottom: 8px;
+  }
+
+  .try-send {
+    right: 8px;
+  }
+
+  .try-mic {
+    right: 60px;
+  }
+
+  .try textarea {
+    padding-right: 116px;
+  }
+
+  .try-field.is-no-speech textarea {
+    padding-right: 60px;
   }
 }

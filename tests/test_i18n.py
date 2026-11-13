@@ -169,12 +169,12 @@ def main() -> int:
     assert len(json.loads(qjson)["questions"]) == 3
     assert "/api/nn" in (root / "server.py").read_text(encoding="utf-8")
     assert "object-fit: cover" in css.split(".case-shots img {", 1)[1].split("}", 1)[0]
-    assert 'href="styles.css?v=114"' in html
+    assert 'href="styles.css?v=115"' in html
     faces = set(re.findall(r'font-family: "([^"]+)"', css.split(":root", 1)[0]))
     assert faces == {"Manrope Variable", "IBM Plex Mono"}, faces
     assert "YaHei" not in css and "PingFang" not in css
     assert "fact-scribble-stars" not in html and "fact-scribble-stars" not in css
-    assert "i18n.js?v=68" in html
+    assert "i18n.js?v=69" in html
     assert "tryApiErr" in js
     assert "showErr(true)" in html
     assert "base = pain.value" in html
@@ -259,6 +259,13 @@ def main() -> int:
     assert html.count("case-plain") == 2
     assert html.count('class="case-top"') + html.count('class="case-top ') == 3 or html.count("case-top") == 3
     assert html.count('class="case') >= 3
+
+    assert "до полного ответа" in html and "до полного ответа" in js
+    assert "от вопроса до развёрнутого ответа" not in html and "от вопроса до развёрнутого ответа" not in js
+    assert "whoLead" in js and "whoName" in js and "whoRest" in js
+    assert "who-tight" in html and "who-name" in css
+    assert "min-width: 1024px" in css
+    assert "grid-column: 1 / -1" in css
 
     print("ok", len(ru), "keys")
     return 0
