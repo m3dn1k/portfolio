@@ -409,6 +409,11 @@ a {
   overflow: visible;
 }
 
+.fact-ico svg.fact-yy {
+  overflow: visible;
+  shape-rendering: geometricPrecision;
+}
+
 .fact-copy {
   display: grid;
   grid-template-rows: minmax(1.3em, auto) auto;
@@ -1721,6 +1726,7 @@ a {
 
 .hero-facts li {
   background: #f4f7fa;
+  --fact-bg: #f4f7fa;
   border-radius: 22px;
   padding: 14px 16px;
 }
